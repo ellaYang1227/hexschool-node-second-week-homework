@@ -6,16 +6,6 @@ const errorMag = {
     'routing': '沒有此路由'
 };
 
-
-const successHandle = (res, data) => {
-    res.writeHead(200, headers);
-    res.write(JSON.stringify({
-        'status': 'success',
-        data
-    }));
-    res.end();
-};
-
 const errorHandle = (res, statusCode, errorKey, mongooseError) => {
     res.writeHead(statusCode, headers);
     res.write(JSON.stringify({
@@ -26,4 +16,4 @@ const errorHandle = (res, statusCode, errorKey, mongooseError) => {
     res.end();
 };
 
-module.exports = { successHandle, errorHandle };
+module.exports = errorHandle;
