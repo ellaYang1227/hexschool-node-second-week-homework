@@ -58,7 +58,7 @@ const requestListener = async (req, res) => {
             try{
                 const id = req.url.split('/').pop();
                 const update = JSON.parse(body);
-                await Post.findByIdAndUpdate(id, update, {new: true})
+                await Post.findByIdAndUpdate(id, update, {new: true, runValidators: true})
                 .then(updatePost => {
                     if(updatePost){ 
                         successHandle(res, updatePost) 
